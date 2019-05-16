@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>이더리움 오픈마켓</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  </br></br></br></br>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-push-2">
+          <h1 class="text-center">구입하신 상품의 구매를 확정해주세요.</h1>
+          <hr/>
+          <br/>
+        </div>
+      </div>
+
+      <div align="right">
+          <button class="btn btn-info btn-stateprogress btn-buyer"
+                  type="button"
+                  id="buyerStateProgress"
+                  onclick="location.href='index.html';return false"
+                  style=margin-right:10px>HOME</button>
+  
+        <button class="btn btn-warning btn-mypage btn-buyer" 
+                type="button"
+                id="buyerpage"
+                onclick="location.href='buyerpage.html';return false;"
+                style=margin-right:10px >
+                뒤로가기 <!--구매자 로그인-->
+        </button></br></br></div>
+        
+
+      <div class="row" id="list">
+          <!-- 상품 리스트 -->
+        </div>
+      </div>   
+      
+      <div id="template" style="display: none;">
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="panel panel-realEstate">
+            <div align=center class="panel-heading" style="display:none;">
+              <h3 class="panel-title" style="display:none;">구매한 상품</h3>
+            </div>
+            <div class="panel-body" style="display:none;"> <!--상품정보를 보여주는 부분-->
+              <img style="width: 100%;" src="" >
+              <br/><br/>
+              <strong>상품번호</strong>: <span class="id"></span><br/>
+              <strong>종류</strong>: <span class="type"></span><br/>
+              <strong>배송</strong>: <span class="area"></span><br/>
+              <strong>가격(ETH)</strong>: <span class="price"></span><br/><br/>
+              <div class= "deliverymsg" style="display: none"><span style="color:red"> 배송이 완료되었습니다. </span></div>
+              <button class="btn btn-info btn-pay" 
+                      type="button"
+                      id="buyer"
+                      onclick="paycheckBuyer();location.href='buyer.html';return false;"
+                      style=margin-right:10px >
+                      <span style="color:Blue">구매확정</span> <!--구매확정-->
+              </button>
+              <script>
+                function paycheckBuyer() {
+                  alert("구매가 성공적으로 확정되었습니다.");   
+                }
+                
+                </script>
+
+                <button class="btn btn-info btn-delivery" 
+                        type="button" 
+                        data-toggle="modal" 
+                        data-target="#sellerInfoModal" 
+                        style="display: none;">
+                        배송정보 <!--배송이 완료되면 보여지는 버튼-->
+                </button>        
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" tabindex="-1" role="dialog" id="sellerInfoModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">배송정보</h4>
+              </div>
+              <div class="modal-body">
+                  <p><span style="color:Blue"> 판매자 </span></p>
+                <strong>회사계정</strong>: <span id="sellerAddress"></span><br/>
+                <strong>회사이름</strong>: <span id="sellerName"></span><br/>
+                <strong>회사주소</strong>: <span id="sellerHome"></span><br/>
+                <strong>우편번호</strong>: <span id="sellerPost"></span><br/>
+                <strong>핸드폰번호</strong>:<span id="sellerPhone"></span><br/>
+                <br/>
+                <p>에서,</p> <p> <span style="color:Blue"> 구매자 </span></p>
+                <strong>계정주소</strong>: <span id="buyerAddress"></span><br/>
+                <strong>이름</strong>: <span id="buyerName"></span><br/>
+                <strong>나이</strong>: <span id="buyerAge"></span><br/>
+                <strong>집주소</strong>: <span id="buyerHome"></span><br/>
+                <strong>우편번호</strong>: <span id="buyerPost"></span><br/>
+                <strong>핸드폰번호</strong>:<span id="buyerPhone"></span><br/>
+                <br/>
+                <p>로 배송되었습니다.</p>
+                <br/>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+    
+  
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/utf8.js"></script>
+  </body>
+</html>

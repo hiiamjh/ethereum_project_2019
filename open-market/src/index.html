@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>이더리움 오픈마켓</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  </br></br></br></br>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-push-2">
+          <h1 class="text-center">이더리움 오픈마켓에 오신 것을 환영합니다!</h1>
+          <hr/>
+          <br/>
+        </div>
+      </div>
+
+      <div align="center">
+      <button class="btn btn-success btn-login btn-buyer" 
+                    type="button"
+                    id="buyer"
+                    onclick="loginBuyer();location.href='buyer.html';return false;"
+                    style=margin-right:10px >
+                    구매자입니다. <!--구매자 로그인-->
+            </button>
+            <script>
+              function loginBuyer() {
+                alert("구매자로 로그인하시겠습니까?");
+              }
+              </script>
+      
+      <button class="btn btn-success btn-login btn-seller" 
+                    type="button"
+                    id="seller"
+                    onclick="loginSeller();location.href='seller.html';return false;">
+                    아니오, 판매자입니다. <!--판매자 로그인-->
+            </button></br></br>
+            <script>
+              function loginSeller() {
+                alert("판매자로 로그인하시겠습니까?");
+              }
+              </script>
+
+      </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/utf8.js"></script>
+  </body>
+</html>

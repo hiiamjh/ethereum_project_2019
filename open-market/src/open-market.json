@@ -1,0 +1,82 @@
+[
+  {
+    "id": 0,
+    "type": "공기청정기",
+    "picture": "images/airmachine.jpg",
+    "area": "무료배송",
+    "price": 5.23,
+    "deliveryprice": 0
+  },
+  {
+    "id": 1,
+    "type": "참외",
+    "picture": "images/charm.jpg",
+    "area": "무료배송",
+    "price": 1.56,
+    "deliveryprice": 0
+  },
+  {
+    "id": 2,
+    "type": "닭가슴살",
+    "picture": "images/chicken.jpg",
+    "area": "유료배송",
+    "price": 1.74,
+    "deliveryprice": 0.2
+  },
+  {
+    "id": 3,
+    "type": "견미리 팩트",
+    "picture": "images/cousion.jpg",
+    "area": "무료배송",
+    "price": 2.87,
+    "deliveryprice": 0
+  },
+  {
+    "id": 4,
+    "type": "고속충전기",
+    "picture": "images/energy.jpg",
+    "area": "유료배송",
+    "price": 3.97,
+    "deliveryprice": 0.3
+  },
+  {
+    "id": 5,
+    "type": "마스크",
+    "picture": "images/mask.jpg",
+    "area": "유료배송",
+    "price": 1.02,
+    "deliveryprice": 0.2
+  },
+  {
+    "id": 6,
+    "type": "노트북 파우치",
+    "picture": "images/pouch.jpg",
+    "area": "유료배송",
+    "price": 3.12,
+    "deliveryprice": 0.2
+  },
+  {
+    "id": 7,
+    "type": "수입과자 50종",
+    "picture": "images/snack.jpg",
+    "area": "무료배송",
+    "price": 1.32,
+    "deliveryprice": 0
+  },
+  {
+    "id": 8,
+    "type": "냉동 딸기",
+    "picture": "images/strawberry.jpg",
+    "area": "무료배송",
+    "price": 2.57,
+    "deliveryprice": 0
+  },
+  {
+    "id": 9,
+    "type": "수박",
+    "picture": "images/watermelon.jpg",
+    "area": "무료배송",
+    "price": 3.09,
+    "deliveryprice": 0
+  }
+]

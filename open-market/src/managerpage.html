@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>이더리움 오픈마켓</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-push-2">
+          <h1 class="text-center">이더리움 오픈마켓 운영자 페이지</h1>
+          <hr/>
+          <br/>
+        </div>
+      </div>
+
+      <div id="managerevents" style=margin-right:10px></div>
+      
+      <!--<div class="btn-buyerpage" align="right">
+        <button class="btn btn-info btn-paytoSeller"
+                type="button"
+                id="paytoSeller"
+                onclick="location.href='buyerstate.html';return false;"
+                style="margin-right:10px">배송정보확인 및 구매확정하기</button>-->
+        <div align="right">
+        <button class="btn btn-warning btn-mypage btn-buyer" 
+              type="button"
+              id="buyerpage"
+              onclick="location.href='buyer.html';return false;"
+              style=margin-right:10px >
+              뒤로가기 <!--상품목록 페이지-->
+        </button></br></br></div>
+
+        
+      <div class="row" id="list">
+          <!-- 상품 리스트 -->
+        </div>
+      </div>   
+      
+      <div id="template" style="display: none;">
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="panel panel-realEstate">
+            <div align=center class="panel-heading" style="display:none;">
+              <h3 class="panel-title" style="display:none;">거래목록</h3>
+            </div>
+            <div class="panel-body" style="display:none;"> <!--상품정보를 보여주는 부분-->
+              <img style="width: 100%;" src="" >
+              <br/><br/>
+              <strong>상품번호</strong>: <span class="id"></span><br/>
+              <strong>종류</strong>: <span class="type"></span><br/>
+              <strong>배송</strong>: <span class="area"></span><br/>
+              <strong>가격(ETH)</strong>: <span class="price"></span><br/><br/>
+
+              
+              <div class= "dopaymsg" style="display: none"><span style="color:red"> 정산이 완료되었습니다. </span></div>
+              <div class= "docancelmsg" style="display: none"><span style="color:red"> 환불이 완료되었습니다. </span></div>
+
+              <button class="btn btn-info btn-decidedPayInfo" 
+                      type="button" 
+                      data-toggle="modal" 
+                      data-target="#decidedPayInfoModal" 
+                      style="display: none;">
+                      정산 영수증 <!--구입이 완료되면 보여지는 버튼-->
+                </button>  
+
+              <button class="btn btn-info btn-decidedCancelInfo" 
+                      type="button" 
+                      data-toggle="modal" 
+                      data-target="#decidedCancelInfoModal" 
+                      style="display: none;">
+                      환불 영수증 <!--구입이 완료되면 보여지는 버튼-->
+              </button>        
+
+              <button class="btn btn-info btn-dopay" 
+                      type="button"
+                      id="buyer"
+                      data-toggle="modal" 
+                      data-target="#doPayModal" 
+                      style="margin-right:10px" >
+                      정산하기 <!--구매확정-->
+              </button>
+            </p>
+              <button class="btn btn-info btn-docancel" 
+                      type="button"
+                      id="buyer"
+                      data-toggle="modal" 
+                      data-target="#doCancelModal" 
+                      style="margin-right:10px" >
+                      환불하기 <!--구매확정-->
+                 
+              <!--<button class="btn btn-info seller-payInfo" 
+                      type="button" 
+                      data-toggle="modal" 
+                      data-target="#payInfoModal" 
+                      style="display: none;">
+                      영수증--> <!--구입이 완료되면 보여지는 버튼-->
+      </button>          
+            </div>
+          </div>
+        </div>
+      </div>
+     <!--구입 버튼 클릭 시 모달 전달-->
+    <div class="modal fade" tabindex="-1" role="dialog" id="doPayModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">정산 정보</h4>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" id="id" />
+            <input type="hidden" id="price" /><!--안보이는 필드-->
+            <!--<input type="number" class="form-control" id="date" placeholder="날짜" /><br/>-->
+            <strong>구매자</strong>: <span id="frompaybuyer"></span></p>
+            <strong>구매확정일자</strong>: <span id="frompaydate"></span></p>
+            <strong>구매후기</strong>:<span id="fromreview"></span></p>
+            <input type="number" class="form-control" id="pdate" placeholder="정산날짜" /><br/>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+            <button type="button" class="btn btn-primary" onclick="App.doPayProduct(); return false;">정산</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+  
+    <div class="modal fade" tabindex="-1" role="dialog" id="doCancelModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">환불 정보</h4>
+            </div>
+            <div class="modal-body">
+              <input type="hidden" id="id" />
+              <input type="hidden" id="price" /><!--안보이는 필드-->
+              <!--<input type="text" class="form-control" id="reason" placeholder="사유" /><br/>-->
+              <strong>구매자</strong>: <span id="frompaybuyer"></span></br>
+              <strong>구매취소일자</strong>: <span id="fromcanceldate"></span><br/>
+              <strong>취소사유</strong>:<span id="fromreason"></span><br/>
+              <input type="number" class="form-control" id="cdate" placeholder="환불날짜" /><br/>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+              <button type="button" class="btn btn-primary" onclick="App.doCancelProduct(); return false;">환불</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+
+      <div class="modal fade" tabindex="-1" role="dialog" id="decidedPayInfoModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">정산 영수증</h4>
+              </div>
+              <div class="modal-body">
+                <p><span style="color:Blueviolet">해당 상품은 다음과 같이 정산되었습니다. </span> </p>
+                <strong>구매자</strong>: <span id="frompaybuyer"></span></p>
+                <strong>구매확정일자</strong>: <span id="frompaydate"></span></p>
+                <strong>구매후기</strong>:<span id="fromreview"></span></p>
+                <strong>운영자</strong>:<span id="frommanager"></span></p>
+                <strong>정산일자</strong>:<span id="frompdate"></span><br/>
+                <!--<strong>이름</strong>: <span id="buyerName"></span><br/>
+                <strong>나이</strong>: <span id="buyerAge"></span><br/>
+                <strong>집주소</strong>: <span id="buyerHome"></span><br/>
+                <strong>우편번호</strong>: <span id="buyerPost"></span><br/>
+                <strong>핸드폰번호</strong>:<span id="buyerPhone"></span><br/>-->
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+  
+        <div class="modal fade" tabindex="-1" role="dialog" id="decidedCancelInfoModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title">환불 영수증</h4>
+                </div>
+                <div class="modal-body">
+                  <p><span style="color:Blueviolet">해당 상품은 다음과 같이 환불되었습니다. </span> </p>
+                  <strong>구매자</strong>: <span id="fromcancelbuyer"></span></br>
+                  <strong>구매취소일자</strong>: <span id="fromcanceldate"></span><br/>
+                  <strong>취소사유</strong>:<span id="fromreason"></span><br/>
+                  <strong>운영자</strong>:<span id="frommanager"></span></p>
+                  <strong>환불일자</strong>:<span id="fromcdate"></span><br/>
+                  <!--<strong>이름</strong>: <span id="buyerName"></span><br/>
+                  <strong>나이</strong>: <span id="buyerAge"></span><br/>
+                  <strong>집주소</strong>: <span id="buyerHome"></span><br/>
+                  <strong>우편번호</strong>: <span id="buyerPost"></span><br/>
+                  <strong>핸드폰번호</strong>:<span id="buyerPhone"></span><br/>-->
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
+  
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/utf8.js"></script>
+  </body>
+</html>

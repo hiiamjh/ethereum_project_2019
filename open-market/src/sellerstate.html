@@ -60,59 +60,45 @@
               <strong>상품번호</strong>: <span class="id"></span><br/>
               <strong>종류</strong>: <span class="type"></span><br/>
               <strong>배송</strong>: <span class="area"></span><br/>
-              <strong>가격(ETH)</strong>: <span class="price"></span><br/><br/>
-              <button class="btn btn-info btn-pay" 
-                      type="button"
-                      id="buyer"
-                      data-toggle="modal" 
-                      data-target="#payModal" 
-                      style="margin-right:10px" >
-                      <span style="color:Blue">정산받기</span> <!--구매확정-->
-              </button>      
+              <strong>가격(ETH)</strong>: <span class="price"></span><br/><br/>  
 
-              <button class="btn btn-info seller-payInfo" 
+              <div class= "dopaymsg" style="display: none"><span style="color:red"> 정산이 완료되었습니다. </span></div>
+              <div class= "docancelmsg" style="display: none"><span style="color:red"> 환불이 완료되었습니다. </span></div>
+
+              <button class="btn btn-info btn-decidedPayInfo" 
                       type="button" 
                       data-toggle="modal" 
-                      data-target="#payInfoModal" 
+                      data-target="#decidedPayInfoModal" 
                       style="display: none;">
-                      영수증 <!--구입이 완료되면 보여지는 버튼-->
-      </button>          
+                      정산 영수증 <!--구입이 완료되면 보여지는 버튼-->
+                </button>  
+
+              <button class="btn btn-info btn-decidedCancelInfo" 
+                      type="button" 
+                      data-toggle="modal" 
+                      data-target="#decidedCancelInfoModal" 
+                      style="display: none;">
+                      환불 영수증 <!--구입이 완료되면 보여지는 버튼-->
+              </button>                  
             </div>
           </div>
         </div>
-      </div>
-     <!--구입 버튼 클릭 시 모달 전달-->
-    <div class="modal fade" tabindex="-1" role="dialog" id="payModal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">정산 정보</h4>
-          </div>
-          <div class="modal-body">
-            <input type="hidden" id="id" />
-            <input type="hidden" id="price" /><!--안보이는 필드-->
-            <input type="number" class="form-control" id="date" placeholder="날짜" /><br/>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-            <button type="button" class="btn btn-primary" onclick="App.payRealEstate(); return false;">정산</button>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+      </div> 
 
-    <div class="modal fade" tabindex="-1" role="dialog" id="payInfoModal">
+    <div class="modal fade" tabindex="-1" role="dialog" id="decidedPayInfoModal">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">영수증</h4>
+              <h4 class="modal-title">정산 영수증</h4>
             </div>
             <div class="modal-body">
               <p><span style="color:Blueviolet">해당 상품은 다음과 같이 정산되었습니다. </span> </p>
-              <strong>계정주소</strong>: <span id="payAddress"></span><br/>
-              <strong>정산날짜</strong>: <span id="payDate"></span><br/>
+              <strong>구매자</strong>: <span id="frompaybuyer"></span></p>
+              <strong>구매확정일자</strong>: <span id="frompaydate"></span></p>
+              <strong>구매후기</strong>:<span id="fromreview"></span></p>
+              <strong>운영자</strong>:<span id="frommanager"></span></p>
+              <strong>정산일자</strong>:<span id="frompdate"></span><br/>
               <!--<strong>이름</strong>: <span id="buyerName"></span><br/>
               <strong>나이</strong>: <span id="buyerAge"></span><br/>
               <strong>집주소</strong>: <span id="buyerHome"></span><br/>
@@ -125,6 +111,33 @@
           </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
       </div><!-- /.modal -->
+
+      <div class="modal fade" tabindex="-1" role="dialog" id="decidedCancelInfoModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">환불 영수증</h4>
+              </div>
+              <div class="modal-body">
+                <p><span style="color:Blueviolet">해당 상품은 다음과 같이 환불되었습니다. </span> </p>
+                <strong>구매자</strong>: <span id="fromcancelbuyer"></span></br>
+                <strong>구매취소일자</strong>: <span id="fromcanceldate"></span><br/>
+                <strong>취소사유</strong>:<span id="fromreason"></span><br/>
+                <strong>운영자</strong>:<span id="frommanager"></span></p>
+                <strong>환불일자</strong>:<span id="fromcdate"></span><br/>
+                <!--<strong>이름</strong>: <span id="buyerName"></span><br/>
+                <strong>나이</strong>: <span id="buyerAge"></span><br/>
+                <strong>집주소</strong>: <span id="buyerHome"></span><br/>
+                <strong>우편번호</strong>: <span id="buyerPost"></span><br/>
+                <strong>핸드폰번호</strong>:<span id="buyerPhone"></span><br/>-->
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

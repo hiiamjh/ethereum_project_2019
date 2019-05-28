@@ -17,7 +17,22 @@
     <![endif]-->
   </head>
   <body>
-  </br></br></br></br>
+  </br>
+  <div align="right">
+  <button class="btn btn-Error btn-login btn-seller" 
+          type="button"
+          id="seller"
+          onclick="loginManager();location.href='managerpage.html';return false;"
+          style=margin-right:20px>
+          운영자페이지 <!--판매자 로그인-->
+        </button></br></br>
+        <script>
+          function loginManager() {
+          alert("운영자 페이지로 이동합니다.");
+          }
+        </script>
+        </div>
+    </br></br></br>
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-push-2">
@@ -37,22 +52,21 @@
             </button>
             <script>
               function loginBuyer() {
-                alert("구매자로 로그인하시겠습니까?");
+                alert("구매자 페이지로 이동합니다.");
               }
               </script>
       
       <button class="btn btn-success btn-login btn-seller" 
                     type="button"
                     id="seller"
-                    onclick="loginSeller();location.href='seller.html';return false;">
+                    onclick="loginSeller();location.href='seller.html';return false;" >
                     아니오, 판매자입니다. <!--판매자 로그인-->
             </button></br></br>
             <script>
               function loginSeller() {
-                alert("판매자로 로그인하시겠습니까?");
+                alert("판매자 페이지로 이동합니다.");
               }
               </script>
-
       </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

@@ -61,28 +61,25 @@
               <strong>종류</strong>: <span class="type"></span><br/>
               <strong>배송</strong>: <span class="area"></span><br/>
               <strong>가격(ETH)</strong>: <span class="price"></span><br/><br/>
-              <div class= "deliverymsg" style="display: none"><span style="color:red"> 배송이 완료되었습니다. </span></div>
-              <button class="btn btn-info btn-pay" 
-                      type="button"
-                      id="buyer"
-                      onclick="paycheckBuyer();location.href='buyer.html';return false;"
-                      style=margin-right:10px >
-                      <span style="color:Blue">구매확정</span> <!--구매확정-->
-              </button>
-              <script>
-                function paycheckBuyer() {
-                  alert("구매가 성공적으로 확정되었습니다.");   
-                }
-                
-                </script>
-
+              <div align=center class= "deliverymsg" style="display: none"><span style="color:red"> 배송이 완료되었습니다. </span></div>
+            </p>
+              <div align=left>
                 <button class="btn btn-info btn-delivery" 
                         type="button" 
                         data-toggle="modal" 
                         data-target="#sellerInfoModal" 
                         style="display: none;">
-                        배송정보 <!--배송이 완료되면 보여지는 버튼-->
-                </button>        
+                        배송정보 확인하기 <!--배송이 완료되면 보여지는 버튼-->
+                </button>
+              </p>
+                <button class="btn btn-info btn-decision" 
+                        type="button"
+                        id="buyer"
+                        data-toggle="modal"
+                        data-target="#decisionModal">
+                        <span style="color:Blue">구매확정/구매취소</span> <!--구매확정-->
+                </button>
+              </div>        
             </div>
           </div>
         </div>
@@ -120,6 +117,37 @@
             </div><!-- /.modal-content -->
           </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
+
+        <div class="modal fade" tabindex="-1" role="dialog" id="decisionModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title">구매확정/구매취소</h4>
+                </div>
+                <div align=center class="modal-body">
+                  <p> 구매를 확정하시면, 판매자에게 돈이 지급됩니다. </span></p>
+                  <input type="hidden" id="id" />
+                  <input type="hidden" id="price" /><!--안보이는 필드-->
+                  <input type="number" class="form-control" id="paydate" placeholder="확정날짜" /><br/>
+                  <input type="text" class="form-control" id="review" placeholder="구매한줄평" /><br/>
+                  <div align=right>
+                  <button type="button" class="btn btn-primary btn-decidepay" onclick="App.decidePayProduct(); return false;" >구매확정</button></div></p>
+
+                  <p> 구매를 취소하시면, 구매자분께 돈이 환불됩니다. </span></p>
+                  <input type="hidden" id="id" />
+                  <input type="hidden" id="price" /><!--안보이는 필드-->
+                  <input type="number" class="form-control" id="canceldate" placeholder="취소날짜" /><br/>
+                  <input type="text" class="form-control" id="reason" placeholder="취소사유" /><br/>
+                  <div align=right>
+                  <button type="button" class="btn btn-primary btn-decidecancel" onclick="App.decideCancelProduct(); return false;" >구매취소</button></div></p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
     
   
 

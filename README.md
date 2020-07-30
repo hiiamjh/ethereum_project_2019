@@ -23,10 +23,14 @@
 
 이러한 문제의 해결을 위해 다음 두 가지를 목표로 잡고 프로젝트 개발을 진행했습니다.
 
-![image-20200730142823557](C:\Users\yjh\AppData\Roaming\Typora\typora-user-images\image-20200730142823557.png)
+![image-20200730142823557](./img/image-20200730142823557.png)
 
 1. 판매자와 구매자 간 제 3자 개입없이 거래를 자동화한 플랫폼
 2. 블록체인 상에 구매내역을 영구히 저장하여 법적 효력 발생
+
+
+
+
 
 
 
@@ -38,7 +42,7 @@
 
 
 
-![image-20200730135637216](C:\Users\yjh\AppData\Roaming\Typora\typora-user-images\image-20200730135637216.png)
+![image-20200730135637216](./img/image-20200730135637216.png)
 
 
 
@@ -100,13 +104,15 @@
 
 
 
+
+
 ### **개발하기**
 
 ------
 
 #### **1. 시스템 구성도**
 
-![image-20200730135856228](C:\Users\yjh\AppData\Roaming\Typora\typora-user-images\image-20200730135856228.png)
+![image-20200730135856228](./img/image-20200730135856228.png)
 
 (1) OpenMarket.sol : 오픈마켓 상에서 일어나는 거래를 자동화하는 스마트 컨트랙트입니다. Geth로 네트워크 구축 후 Truffle을 통해 가장 먼저 배포해줍니다.
 
@@ -130,27 +136,31 @@
 
 1. ##### **Index.html(첫 접속페이지)**
 
-![image-20200730144045934](C:\Users\yjh\AppData\Roaming\Typora\typora-user-images\image-20200730144045934.png)
+![image-20200730144045934](./img/image-20200730144045934.png)
 
 2. ##### **seller.html(판매자 페이지)**
 
-   ![image-20200730144149707](C:\Users\yjh\AppData\Roaming\Typora\typora-user-images\image-20200730144149707.png)
+   ![image-20200730144149707](./img/image-20200730144149707.png)
 
-   ![image-20200730144324228](C:\Users\yjh\AppData\Roaming\Typora\typora-user-images\image-20200730144324228.png)
+   ![image-20200730144324228](./img/image-20200730144324228.png)
 
 
 
 3. ##### **ManagerPage.html(운영자 페이지)**
 
-   ![image-20200730144429392](C:\Users\yjh\AppData\Roaming\Typora\typora-user-images\image-20200730144429392.png)
+   ![image-20200730144429392](./img/image-20200730144429392.png)
 
 
 
 4. ##### buyer.html(구매자 페이지)
 
-![image-20200730144542933](C:\Users\yjh\AppData\Roaming\Typora\typora-user-images\image-20200730144542933.png)
+![image-20200730144542933](./img/image-20200730144542933.png)
 
-![image-20200730144557154](C:\Users\yjh\AppData\Roaming\Typora\typora-user-images\image-20200730144557154.png)
+![image-20200730144557154](./img/image-20200730144557154.png)
+
+
+
+
 
 
 
@@ -164,15 +174,15 @@
 
 #### **1. 환경설정**
 
-![image-20200730144934753](C:\Users\yjh\AppData\Roaming\Typora\typora-user-images\image-20200730144934753.png)
+![image-20200730144934753](./img/image-20200730144934753.png)
 
 
 
 #### 2. 결론
 
-![image-20200730145138334](C:\Users\yjh\AppData\Roaming\Typora\typora-user-images\image-20200730145138334.png)
+![image-20200730145138334](./img/image-20200730145138334.png)
 
-![image-20200730145155614](C:\Users\yjh\AppData\Roaming\Typora\typora-user-images\image-20200730145155614.png)
+![image-20200730145155614](./img/image-20200730145155614.png)
 
-![image-20200730145227053](C:\Users\yjh\AppData\Roaming\Typora\typora-user-images\image-20200730145227053.png)
+![image-20200730145227053](./img/image-20200730145227053.png)
 
